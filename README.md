@@ -4,8 +4,7 @@ Requirement: Alamofire source -> https://github.com/Alamofire/Alamofire
 
 Sample Useage:
 
-let path = "http://services.odata.org/OData/OData.svc/"
-        
+        let path = "http://services.odata.org/OData/OData.svc/"
         AlamofireXML.request(.GET, path, parameters: nil, headers: nil)
             .response {
                 
