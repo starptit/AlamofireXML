@@ -20,7 +20,7 @@ extension Manager{
         mutableURLRequest.setValue("text/xml; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
         if let xmlParams = parameters {
-        
+            
             mutableURLRequest.setValue("\(xmlParams.characters.count)", forHTTPHeaderField: "Content-Length")
         }
         
@@ -51,20 +51,22 @@ extension Manager{
         
         return (mutableURLRequest, encodingError)
     }
-
+    
 }
 
-public func request(
-    method: Alamofire.Method,
-    _ URLString: URLStringConvertible,
-      parameters: String?,
-      headers: [String: String]? = nil)
-    -> Request
-{
-    return Manager.sharedInstance.requestXML(
-        method,
-        URLString,
-        parameters: parameters,
-        headers: headers
-    )
+class AlamofireXML:Manager{
+    static func request(
+        method: Alamofire.Method,
+        _ URLString: URLStringConvertible,
+          parameters: String?,
+          headers: [String: String]? = nil)
+        -> Request
+    {
+        return Manager.sharedInstance.requestXML(
+            method,
+            URLString,
+            parameters: parameters,
+            headers: headers
+        )
+    }
 }
